@@ -1,0 +1,66 @@
+[package]
+name = "trpl"
+version = "0.1.0"
+authors = ["zhujie <jiemao@gmail.com>"]
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "control_flow"
+path = "src/control_flow.rs"
+
+[[bin]]
+name = "ownership"
+path = "src/ownership.rs"
+
+[[bin]]
+name = "variable"
+path = "src/variable.rs"
+
+[[bin]]
+name = "function"
+path = "src/function.rs"
+
+[[bin]]
+name = "ref_borrow"
+path = "src/ref_borrow.rs"
+
+[[bin]]
+name = "slices"
+path = "src/slices.rs"
+
+[[bin]]
+name = "struct"
+path = "src/struct.rs"
+
+[[bin]]
+name = "enum"
+path = "src/enum.rs"
+
+[[bin]]
+name = "uselib"
+path = "src/uselib.rs"
+
+[[bin]]
+name = "collections"
+path = "src/collections.rs"
+
+[[bin]]
+name = "string"
+path = "src/string.rs"
+
+[[bin]]
+name = "map"
+path = "src/map.rs"
+
+[[bin]]
+name = "error"
+path = "src/error.rs"
+
+[[bin]]
+name = "generic"
+path = "src/generic.rs"
+
+[dependencies]

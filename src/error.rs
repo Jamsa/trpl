@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::ErrorKind;
 use std::io::Read;
-use std::io;
+use std::io::Error;
 
 // 错误处理
 // 错误分为两类：可恢复和不可恢复
@@ -57,7 +57,7 @@ fn main() {
 }
 
 
-fn read_username_from_file() -> Result<String,io::Error>{
+fn read_username_from_file() -> Result<String,Error>{
     let mut f = File::open("hello.txt")?; // 传播错误
     let mut s = String::new();
     f.read_to_string(&mut s)?;

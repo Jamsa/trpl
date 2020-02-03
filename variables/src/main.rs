@@ -1,3 +1,5 @@
+//变量和可变性
+
 fn main() {
     //println!("Hello, world!");
     let x = 5;
@@ -33,7 +35,7 @@ fn main() {
     println!("space的值是数字：{}",spaces);
 
     // 变量类型
-    // 两类：标量和复合
+    // 两类：标量和复合类型
     // let guess  = "42".parse().expect("Not a number"); 不明确定义变量类型会导致类型推断错误
     let guess: u32  = "42".parse().expect("Not a number");
     println!("guess的值是：{}",guess);

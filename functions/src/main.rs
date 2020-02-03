@@ -23,5 +23,5 @@ fn another_function(x: i32){
 }
 
 fn five() -> i32 {
-    5
+    5 //这里末尾也没有加分号
 }

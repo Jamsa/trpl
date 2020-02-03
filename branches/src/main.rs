@@ -12,7 +12,7 @@ fn main(){
     }
 
     // if是表达式，可以将if 的返回值赋给变量
-    let condition = true;
+    let condition = true; //条件必须是bool型
     let number = if condition {
         5
     }else{
@@ -24,11 +24,13 @@ fn main(){
     // 循环有3种类型：loop、while和for
 
     let mut count = 0;
-    loop{
-        if count >= 10 {break;}
+    let result = loop{
+        if count >= 10 {break count*2;} //break也可以返回值
         println!("loop count {}",count);
         count = count + 1;
-    }
+    }; //返回值时需要加分号
+
+    println!("loop result: {}", result);
 
     let mut number = 3;
     while number != 0 {

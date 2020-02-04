@@ -1,3 +1,4 @@
+//Rust枚举与函数式编程语言中的代数数据类型（不可变类型？）最为相似
 enum IpAddkind {
     V4,
     V6,
@@ -77,7 +78,7 @@ fn main() {
 
     println!("plus_one:{:?}",plus_one(Some(20)));
 
-    // 使用if let语法糖，忽略其它模式
+    // 使用if let语法糖，简单判断时比match要方便，忽略其它模式
     if let Some(5) = some_number {
         println!("five");
     }else{                      // 匹配其它模式

@@ -24,6 +24,7 @@ fn build_user(email:String,username:String) -> User {
     }
 }
 
+//与元组类似的结构体被称为元组结构体
 struct Color(i32,i32,i32);
 
 fn main() {
@@ -72,11 +73,12 @@ fn main() {
     let rect2 = Rectangle{ width: 10,height: 40};
     println!("Can rect1 hold rect2? {}",rect1.can_hold(&rect2));
 
+    // 关联函数
     let sq = Rectangle::square(3);
-    println!("Square: {:#?}",sq);
+    println!("Square: {:#?}",sq); //{:?}是另一种输出格式
 }
 
-#[derive(Debug)]
+#[derive(Debug)] //派生Debug trait，以支持打印出调试信息
 struct Rectangle{
     width: u32,
     height: u32,
@@ -94,7 +96,7 @@ impl Rectangle {
 
 // 可以有多个impl块
 impl Rectangle {
-    // 不带self参数的方法被称为“关联函数”
+    // 不带self参数的方法被称为“关联函数”。它仍与结构体关联，但不与实例关联
     fn square(size: u32) -> Rectangle {
         Rectangle{width: size,height:size}
     }
@@ -103,3 +105,7 @@ impl Rectangle {
 fn area(rectangle: &Rectangle) -> u32{
     rectangle.width * rectangle.height
 }
+
+//C++中的->运算符
+//rust中没有，他通过自动引用和解引用功能来实现。
+//当使用object.something()调用方法时，会自动为object添加&、&mut或*以便使object与方法签名匹配。

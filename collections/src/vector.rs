@@ -6,10 +6,10 @@ enum SpreadsheetCell{
 }
 
 fn main() {
-    // vector
+    // vector 只能存储相同的类型，在内存中相邻排列
     let v:Vec<i32> = Vec::new();
     println!("{:?}",v);
-    let v = vec![1,2,3];
+    let v = vec![1,2,3]; //vec!宏
     println!("{:?}",v);
 
     let second1: &i32 = &v[2];            // 使用不存在的索引时会panic!
@@ -22,7 +22,7 @@ fn main() {
     for i in &v{
         println!("{}",i);
     }
-    // 获取元素不可变引用时，无法向vec中添加元素
+    // 获取元素不可变引用后，将无法向vec中添加元素
     // 因为vec内部实现中，在push元素时，如内存不足，有可能会移动其它元素，包括头部元素
     //let first = &v[0];          
     //v.push(6);
@@ -36,7 +36,7 @@ fn main() {
         println!("{}",i);
     }
     
-    // vec中只能存储一种类型的数据。如果要存储不同类型的数据，可以使用枚举
+    // vec中只能存储一种类型的数据。如果要存储不同类型的数据，可以存储枚举元素
     let row = vec![
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Text(String::from("blue")),

@@ -4,6 +4,7 @@ use std::collections::HashMap;
 fn main() {
     let mut scores = HashMap::new();
 
+    //所有权,insert后，实现了Copy trait的类型值可以拷贝进map，像String这样拥有所有权的，其值将被移入map
     scores.insert(String::from("Blue"),10);
     scores.insert(String::from("Yellow"),50);
 
@@ -30,8 +31,19 @@ fn main() {
     let mut scores = HashMap::new();
     scores.insert(String::from("Blue"), 10);
     // entry方法返回的是枚举Entry，它代表可能存在也可能不存在的值
+    // 只在键不存在时写入
     scores.entry(String::from("Yellow")).or_insert(50);
     scores.entry(String::from("Blue")).or_insert(50);
     
     println!("{:?}",scores);
+
+    // 根据旧值更新一个值（单词计数）
+    let text = "hello world wonderful world";
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{:?}", map);
 }

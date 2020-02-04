@@ -10,5 +10,5 @@ fn main() {
     network::connect();
     network::server::connect();
     // 从根模块开始引用
-    ::client::connect();
+    crate::client::connect();
 }

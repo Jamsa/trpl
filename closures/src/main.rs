@@ -3,7 +3,7 @@ use std::thread;
 use std::time::Duration;
 fn generate_workout(intensity: u32, random_number: u32) {
 
-    //闭包
+    //闭包的定义，竖线间是参数。由于闭包较小，参数多数可以自动推断类型。
     let expensive_closure = |num| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));

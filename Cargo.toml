@@ -1,0 +1,22 @@
+#工作空间管理多个crate
+[workspace]
+members = [
+        #按书中示例顺序
+        #"hello_world", 没有被crate管理的
+        "hello_cargo",
+        "guessing_game",
+        "common-concepts",
+        "variables",
+        "functions",
+        "ownership",
+        "references_and_borrowing",
+        "slices",
+        "structs",
+        "enums",
+        #"packages_and_crates",
+        "uselib",
+        "collections",
+        "errors",
+        "generics",
+        "lifetime"
+]

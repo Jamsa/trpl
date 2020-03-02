@@ -21,5 +21,8 @@ members = [
         "generics",
         "lifetime",
         "boxes",
-        "derefs"
+        "derefs",
+        "drops",
+        "rcs",
+        "interior-mutability",
 ]

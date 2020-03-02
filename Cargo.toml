@@ -8,6 +8,7 @@ members = [
         "common-concepts",
         "variables",
         "functions",
+        "branches",
         "ownership",
         "references_and_borrowing",
         "slices",
@@ -18,5 +19,7 @@ members = [
         "collections",
         "errors",
         "generics",
-        "lifetime"
+        "lifetime",
+        "boxes",
+        "derefs"
 ]

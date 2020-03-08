@@ -26,4 +26,6 @@ members = [
         "rcs",
         "interior-mutability",
         "reference-cycles",
+        "threads",
+        "message-passing",
 ]

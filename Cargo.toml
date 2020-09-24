@@ -28,4 +28,6 @@ members = [
         "reference-cycles",
         "threads",
         "message-passing",
+        "shared-state",
+        "oop",
 ]

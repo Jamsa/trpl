@@ -58,7 +58,8 @@ impl<T> Screen<T> where T: Draw{
 }*/
 
 pub struct Screen{
-    pub components: Vec<Box<dyn Draw>>, //dyn泛型的动态分发，因为在编译时无法确定泛型参数的类型
+    //使用trait时必须使用动态分发。dyn泛型的动态分发，因为在编译时无法确定泛型参数的类型
+    pub components: Vec<Box<dyn Draw>>, 
 }
 
 impl Screen{

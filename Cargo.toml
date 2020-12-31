@@ -30,4 +30,5 @@ members = [
         "message-passing",
         "shared-state",
         "oop",
+        "patterns",
 ]

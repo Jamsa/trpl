@@ -189,7 +189,7 @@ fn ignore_demo(_: i32,y: i32) {
 
 
 
-    // 使用 ... 忽略值
+    // 使用 .. 忽略值
     struct Point3 {
         x: i32,
         y: i32,
@@ -210,6 +210,74 @@ fn ignore_demo(_: i32,y: i32) {
     }
 }
 
+fn ref_demo(){
+  let robot_name = Some(String::from("Bors"));
+  match robot_name {
+    // pattern match will cause move, cause we can not use robot_name in println
+    // we need use 'ref' here
+    // but can not use '&'
+    // because here '&' means match a ref not 
+    // to match a variable and get it's ref 
+    Some(ref name) => println!("Found a name:{}", name),
+    None => ()
+  }
+  println!("robot_name is: {:?}", robot_name);
+  // and we can use 'ref mut' for mutable ref
+  let mut robot_name = Some(String::from("Bors"));
+  match robot_name {
+    Some(ref mut name) => *name = String::from("hello"),
+    None => ()
+  }
+  println!("robot_name is: {:?}", robot_name);
+}
+
+fn match_guard_demo(){
+  let num = Some(4);
+  match num {
+    Some(x) if x < 5 => println!("less than five:{}", x),
+    Some(x) => println!("{}", x),
+    None => (),
+  }
+  let x = Some(5);
+  let y = 10;
+  match x {
+    Some(50) => println!("Got 50"),
+    Some(n) => println!("Matched,n = {:?}", n),
+    _ => println!("Default case, x = {:?}", x),
+  }
+  println!("at the end: x = {:?}, y = {:?}", x, y);
+  
+  // or match multi values
+  let x = 4;
+  let y = false;
+  match x {
+    4 | 5 | 6 if y => println!("yes"),
+    _ => println!("no"),
+  }
+}
+
+fn at_bind_demo(){
+  enum Message{
+    Hello { id: i32},
+  }
+  
+  let msg = Message::Hello{id: 5};
+  match msg {
+    // @ create a temp variable and use it to test
+    Message::Hello{id: id_variable @ 3... 7} => {
+      println!("Found an id in range: {}", id_variable);
+    },
+    // here id is not a variable, but it's vale can be used to test
+    Message::Hello{id: 10... 12} => {
+      println!("Found an id in another range");
+    },
+    // here id is a variable, but it can not be used to test 
+    Message::Hello{id} => {
+      println!("Found some other id: {}", id);
+    },
+  }
+}
+
 fn main() {
     let_demo();
     while_demo();
@@ -221,4 +289,8 @@ fn main() {
     struct_ref_demo();
     compose_demo();
     ignore_demo(1,2);
+    ref_demo();
+    match_guard_demo();
+    at_bind_demo();
+    
 }

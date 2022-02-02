@@ -31,4 +31,5 @@ members = [
         "shared-state",
         "oop",
         "patterns",
+        "unsafe"
 ]

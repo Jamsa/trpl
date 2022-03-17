@@ -89,7 +89,6 @@ unsafe trait Foo{
 }
 
 unsafe impl Foo for i32{
-  
 }
 
 // accessing fields of a union

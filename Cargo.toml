@@ -31,5 +31,6 @@ members = [
         "shared-state",
         "oop",
         "patterns",
-        "unsafe"
+        "unsafe",
+        "adv_traits"
 ]

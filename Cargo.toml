@@ -32,5 +32,6 @@ members = [
         "oop",
         "patterns",
         "unsafe",
-        "adv_traits"
+        "adv_traits",
+        "adv_types"
 ]

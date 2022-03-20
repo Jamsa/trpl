@@ -33,6 +33,14 @@ impl fmt::Display for Status {
 
 
 // 3. returing closures
+// closures are presented by traits.
+// means you can not return it directly.
+// you can return a concret type that implements the trait. 
+// closures do not have a concret returnable type.
+// you can not return `dyn Fn` directly, because it's not `Sized`
+fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
+}
 
 fn main() {
   let answer = do_twice(add_one, 1);
@@ -54,7 +62,7 @@ fn main() {
   let list_of_statuses: Vec<Status> = (0u32..10).map(Status::Value).collect();
   println!("[{}]",list_of_statuses.iter().map(|i| i.to_string()).collect::<String>());
 
-  // 3.
-  
-
+  // 3. returing closures
+  let clo = returns_closure();
+  println!("closure result = {}", clo(10));
 }

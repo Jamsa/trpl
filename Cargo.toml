@@ -39,3 +39,8 @@ members = [
         "single_thread_server",
         "multi_thread_server"
 ]
+
+exclude = [
+        "hello_macro",
+        "hello_macro/hello_macro_derive"
+]

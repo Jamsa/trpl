@@ -1,39 +1,28 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
-}
-
-
-extern crate proc_macro;
-
+// rust builtin
 use proc_macro::TokenStream;
+// AST to rust code
 use quote::quote;
+// rust code to AST parser
 use syn;
 
 #[proc_macro_derive(HelloMacro)]
 pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
-  // Construct a representation of Rust code as a syntax tree
-  // that we can manipulate
-  let ast = syn::parse(input).unwrap();
+    // Construct a representation of Rust code as a syntax tree
+    // that we can manipulate
+    let ast = syn::parse(input).unwrap();
 
-  // Build the trait implementation
-  impl_hello_macro(&ast)
+    // Build the trait implementation
+    impl_hello_macro(&ast)
 }
 
 fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
-  let name = &ast.ident;
-  let gen = quote! {
-    impl HelloMacro for #name {
-      fn hello_macro() {
-        println!("Hello, Macro! My name is {}!", stringify!(#name));
+    let name = &ast.ident;
+    let gen = quote! {
+      impl HelloMacro for #name {
+        fn hello_macro() {
+          println!("Hello, Macro! My name is {}!", stringify!(#name));
+        }
       }
-    }
-  };
-  gen.into()
+    };
+    gen.into()
 }
-
-

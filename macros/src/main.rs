@@ -2,7 +2,6 @@
 // macros are expanded before the compiler interpreters the meaning of the code
 // the macro definitions are more complex than function definitions
 
-
 // 1. `declarative` and `procedural` macros:
 // - `declarative` macros with `macro_rules`
 // - three kinds of `procedural` macros
@@ -15,7 +14,7 @@
 macro_rules! simple_vec {
   ( $( $x:expr ),* ) => {
     {
-      let mut temp_vec = Vec::new();   
+      let mut temp_vec = Vec::new();
       $(
         temp_vec.push($x);
       )*
@@ -23,7 +22,6 @@ macro_rules! simple_vec {
     }
   };
 }
-
 
 // 3. write a custom `derive` macro
 // define hello_macro trait in `hello_macro` crate
@@ -44,7 +42,7 @@ struct Pancakes;
 
 // 4. `attribute-like` macros
 // Attribute-like macros similar to derive macros, but more flexible.
-// `derive` only works for structs and enums, attributes can be applied on other items, such as functions. 
+// `derive` only works for structs and enums, attributes can be applied on other items, such as functions.
 // #[route(GET,"/")]
 // fn index
 
@@ -54,18 +52,18 @@ struct Pancakes;
 // `macro_rules` macros can be defined only using match-like syntax.
 // let sql = sql!(SELECT * FROM posts WHERE id=1);
 
-
-
-
+// use vecx that is defined in lib.rs
+use macros;
 fn main() {
-  // 2. the simple_vec macro
-  let mut v = simple_vec!(1,2,3);
-  v.push(4);
-  println!("{:?}",v);
+    // 2. the simple_vec macro
+    let mut v = simple_vec!(1, 2, 3);
+    v.push(4);
+    println!("{:?}", v);
 
-  // 3. `derive` macro
-  Pancakes::hello_macro();
-
-
+    // 3. `derive` macro
+    Pancakes::hello_macro();
+    println!("Hello, world!");
+    // defined in lib.rs
+    let v = macros::vecx!(1, 2, 3);
+    println!("vec len:{}", v.len())
 }
-
